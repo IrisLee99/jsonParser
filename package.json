@@ -2,6 +2,7 @@
     "name": "json-parser",
     "author": "jie",
     "type": "module",
+    "main": "src/jsonGenTester.js",
     "dependencies": {
         "files": "^3.0.1"
     }
