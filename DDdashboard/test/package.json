@@ -1,0 +1,8 @@
+{
+    "name": "json-parser",
+    "author": "jie",
+    "type": "module",
+    "dependencies": {
+        "files": "^3.0.1"
+    }
+}
