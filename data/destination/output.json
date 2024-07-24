@@ -1,572 +1,344 @@
 [
   {
-    "@req.url": "/command/pick/:pickId/start-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/start-pick/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/:pickId/start-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/start-pick/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/:pickId/start-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/start-pick/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/:pickId/pause-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/pause-pick/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/:pickId/pause-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/pause-pick/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/:pickId/pause-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/pause-pick/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/:pickId/exit-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/exit-pick/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/:pickId/exit-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/exit-pick/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/:pickId/exit-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/exit-pick/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/:pickId/resume-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/resume-pick/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/:pickId/resume-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/resume-pick/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/:pickId/resume-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/resume-pick/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/:pickId/line/:pickLineId/update-pick-line",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/line\\/:pickLineId\\/update-pick-line/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/:pickId/line/:pickLineId/update-pick-line",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/line\\/:pickLineId\\/update-pick-line/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/:pickId/line/:pickLineId/update-pick-line",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/line\\/:pickLineId\\/update-pick-line/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/:pickId/complete-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/complete-pick/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/:pickId/complete-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/complete-pick/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/:pickId/complete-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/complete-pick/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/:pickId/start-locating",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/start-locating/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/:pickId/start-locating",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/start-locating/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/:pickId/start-locating",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/start-locating/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/:pickId/complete-locating",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/complete-locating/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/:pickId/complete-locating",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/complete-locating/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/:pickId/complete-locating",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/complete-locating/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick-location/locate-pick-line/:aisle/:bay/:bin",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick-location\\/locate-pick-line\\/:aisle\\/:bay\\/:bin/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick-location/locate-pick-line/:aisle/:bay/:bin",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick-location\\/locate-pick-line\\/:aisle\\/:bay\\/:bin/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick-location/locate-pick-line/:aisle/:bay/:bin",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick-location\\/locate-pick-line\\/:aisle\\/:bay\\/:bin/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/:pickId/delocate-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/delocate-pick/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/:pickId/delocate-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/delocate-pick/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/:pickId/delocate-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/delocate-pick/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/:pickId/manual-delocate-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/manual-delocate-pick/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/:pickId/manual-delocate-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/manual-delocate-pick/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/:pickId/manual-delocate-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/manual-delocate-pick/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/:pickId/collect-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/collect-pick/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/:pickId/collect-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/collect-pick/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/:pickId/collect-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/collect-pick/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/:pickId/create-parcel",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/create-parcel/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/:pickId/create-parcel",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/create-parcel/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/:pickId/create-parcel",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/:pickId\\/create-parcel/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/dispatch-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/dispatch-pick/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/dispatch-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/dispatch-pick/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/dispatch-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/dispatch-pick/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/amendment/:amendmentId/start-amendment",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/amendment\\/:amendmentId\\/start-amendment/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/amendment/:amendmentId/start-amendment",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/amendment\\/:amendmentId\\/start-amendment/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/amendment/:amendmentId/start-amendment",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/amendment\\/:amendmentId\\/start-amendment/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/amendment/:amendmentId/pause-amendment",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/amendment\\/:amendmentId\\/pause-amendment/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/amendment/:amendmentId/pause-amendment",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/amendment\\/:amendmentId\\/pause-amendment/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/amendment/:amendmentId/pause-amendment",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/amendment\\/:amendmentId\\/pause-amendment/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/amendment/:amendmentId/complete-amendment",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/amendment\\/:amendmentId\\/complete-amendment/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/amendment/:amendmentId/complete-amendment",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/amendment\\/:amendmentId\\/complete-amendment/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/amendment/:amendmentId/complete-amendment",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/amendment\\/:amendmentId\\/complete-amendment/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/amendment/delocate-pick-lines",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/amendment\\/delocate-pick-lines/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/amendment/delocate-pick-lines",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/amendment\\/delocate-pick-lines/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/amendment/delocate-pick-lines",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/amendment\\/delocate-pick-lines/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/amendment/unpick-pick-lines",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/amendment\\/unpick-pick-lines/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/amendment/unpick-pick-lines",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/amendment\\/unpick-pick-lines/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/amendment/unpick-pick-lines",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/amendment\\/unpick-pick-lines/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/carrier-details/update",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/carrier-details\\/update/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/carrier-details/update",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/carrier-details\\/update/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/carrier-details/update",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/carrier-details\\/update/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/create-store-donation",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/create-store-donation/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/create-store-donation",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/create-store-donation/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/create-store-donation",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/create-store-donation/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/create-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/create-pick/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/create-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/create-pick/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/create-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/create-pick/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/cancel-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/cancel-pick/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/cancel-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/cancel-pick/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/cancel-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/cancel-pick/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/expire-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/expire-pick/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/expire-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/expire-pick/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/expire-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/expire-pick/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/settle-payment",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/settle-payment/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/settle-payment",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/settle-payment/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/settle-payment",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/settle-payment/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/refund-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/refund-pick/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/refund-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/refund-pick/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/refund-pick",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/refund-pick/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/command/pick/amend-pick-lines",
-    "@req.method": "POST",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/amend-pick-lines/* @req.method:POST @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/command/pick/amend-pick-lines",
-    "@req.method": "POST",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/amend-pick-lines/* @req.method:POST @req.statusCode:4*"
   },
   {
-    "@req.url": "/command/pick/amend-pick-lines",
-    "@req.method": "POST",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/command\\/pick\\/amend-pick-lines/* @req.method:POST @req.statusCode:5*"
   },
   {
-    "@req.url": "/query/order/:orderNumber",
-    "@req.method": "GET",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/order\\/:orderNumber/* @req.method:GET @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/query/order/:orderNumber",
-    "@req.method": "GET",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/order\\/:orderNumber/* @req.method:GET @req.statusCode:4*"
   },
   {
-    "@req.url": "/query/order/:orderNumber",
-    "@req.method": "GET",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/order\\/:orderNumber/* @req.method:GET @req.statusCode:5*"
   },
   {
-    "@req.url": "/query/pick-line-locations",
-    "@req.method": "GET",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/pick-line-locations/* @req.method:GET @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/query/pick-line-locations",
-    "@req.method": "GET",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/pick-line-locations/* @req.method:GET @req.statusCode:4*"
   },
   {
-    "@req.url": "/query/pick-line-locations",
-    "@req.method": "GET",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/pick-line-locations/* @req.method:GET @req.statusCode:5*"
   },
   {
-    "@req.url": "/query/pick/:pickId",
-    "@req.method": "GET",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/pick\\/:pickId/* @req.method:GET @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/query/pick/:pickId",
-    "@req.method": "GET",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/pick\\/:pickId/* @req.method:GET @req.statusCode:4*"
   },
   {
-    "@req.url": "/query/pick/:pickId",
-    "@req.method": "GET",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/pick\\/:pickId/* @req.method:GET @req.statusCode:5*"
   },
   {
-    "@req.url": "/query/picklist",
-    "@req.method": "GET",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/picklist/* @req.method:GET @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/query/picklist",
-    "@req.method": "GET",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/picklist/* @req.method:GET @req.statusCode:4*"
   },
   {
-    "@req.url": "/query/picklist",
-    "@req.method": "GET",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/picklist/* @req.method:GET @req.statusCode:5*"
   },
   {
-    "@req.url": "/query/pick-counts",
-    "@req.method": "GET",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/pick-counts/* @req.method:GET @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/query/pick-counts",
-    "@req.method": "GET",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/pick-counts/* @req.method:GET @req.statusCode:4*"
   },
   {
-    "@req.url": "/query/pick-counts",
-    "@req.method": "GET",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/pick-counts/* @req.method:GET @req.statusCode:5*"
   },
   {
-    "@req.url": "/query/amendment/:amendmentId",
-    "@req.method": "GET",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/amendment\\/:amendmentId/* @req.method:GET @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/query/amendment/:amendmentId",
-    "@req.method": "GET",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/amendment\\/:amendmentId/* @req.method:GET @req.statusCode:4*"
   },
   {
-    "@req.url": "/query/amendment/:amendmentId",
-    "@req.method": "GET",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/amendment\\/:amendmentId/* @req.method:GET @req.statusCode:5*"
   },
   {
-    "@req.url": "/query/amendment-list",
-    "@req.method": "GET",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/amendment-list/* @req.method:GET @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/query/amendment-list",
-    "@req.method": "GET",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/amendment-list/* @req.method:GET @req.statusCode:4*"
   },
   {
-    "@req.url": "/query/amendment-list",
-    "@req.method": "GET",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/amendment-list/* @req.method:GET @req.statusCode:5*"
   },
   {
-    "@req.url": "/query/order-amendment/:orderId",
-    "@req.method": "GET",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/order-amendment\\/:orderId/* @req.method:GET @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/query/order-amendment/:orderId",
-    "@req.method": "GET",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/order-amendment\\/:orderId/* @req.method:GET @req.statusCode:4*"
   },
   {
-    "@req.url": "/query/order-amendment/:orderId",
-    "@req.method": "GET",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/order-amendment\\/:orderId/* @req.method:GET @req.statusCode:5*"
   },
   {
-    "@req.url": "/query/parcel-labels",
-    "@req.method": "GET",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/parcel-labels/* @req.method:GET @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/query/parcel-labels",
-    "@req.method": "GET",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/parcel-labels/* @req.method:GET @req.statusCode:4*"
   },
   {
-    "@req.url": "/query/parcel-labels",
-    "@req.method": "GET",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/parcel-labels/* @req.method:GET @req.statusCode:5*"
   },
   {
-    "@req.url": "/query/parcels/:salesOrderId",
-    "@req.method": "GET",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/parcels\\/:salesOrderId/* @req.method:GET @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/query/parcels/:salesOrderId",
-    "@req.method": "GET",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/parcels\\/:salesOrderId/* @req.method:GET @req.statusCode:4*"
   },
   {
-    "@req.url": "/query/parcels/:salesOrderId",
-    "@req.method": "GET",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/parcels\\/:salesOrderId/* @req.method:GET @req.statusCode:5*"
   },
   {
-    "@req.url": "/query/bi/order-details",
-    "@req.method": "GET",
-    "@req.statusCode": "2* OR 3*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/bi\\/order-details/* @req.method:GET @req.statusCode:(2* OR 3*)"
   },
   {
-    "@req.url": "/query/bi/order-details",
-    "@req.method": "GET",
-    "@req.statusCode": "4*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/bi\\/order-details/* @req.method:GET @req.statusCode:4*"
   },
   {
-    "@req.url": "/query/bi/order-details",
-    "@req.method": "GET",
-    "@req.statusCode": "5*"
+    "query": "$kube-namespace $service @req.url:\\/query\\/bi\\/order-details/* @req.method:GET @req.statusCode:5*"
   }
 ]
