@@ -1,1 +1,154 @@
-[{"request":"POST /","endpoint":"/command/pick/:pickId/start-pick"},{"request":"POST /","endpoint":"/command/pick/:pickId/pause-pick"},{"request":"POST /","endpoint":"/command/pick/:pickId/exit-pick"},{"request":"POST /","endpoint":"/command/pick/:pickId/resume-pick"},{"request":"POST /","endpoint":"/command/pick/:pickId/line/:pickLineId/update-pick-line"},{"request":"POST /","endpoint":"/command/pick/:pickId/complete-pick"},{"request":"POST /","endpoint":"/command/pick/:pickId/start-locating"},{"request":"POST /","endpoint":"/command/pick/:pickId/complete-locating"},{"request":"POST /","endpoint":"/command/pick-location/locate-pick-line/:aisle/:bay/:bin"},{"request":"POST /","endpoint":"/command/pick/:pickId/delocate-pick"},{"request":"POST /","endpoint":"/command/pick/:pickId/manual-delocate-pick"},{"request":"POST /","endpoint":"/command/pick/:pickId/collect-pick"},{"request":"POST /","endpoint":"/command/pick/:pickId/create-parcel"},{"request":"POST /","endpoint":"/command/pick/dispatch-pick"},{"request":"POST /","endpoint":"/command/amendment/:amendmentId/start-amendment"},{"request":"POST /","endpoint":"/command/amendment/:amendmentId/pause-amendment"},{"request":"POST /","endpoint":"/command/amendment/:amendmentId/complete-amendment"},{"request":"POST /","endpoint":"/command/amendment/delocate-pick-lines"},{"request":"POST /","endpoint":"/command/amendment/unpick-pick-lines"},{"request":"POST /","endpoint":"/command/carrier-details/update"},{"request":"POST /","endpoint":"/command/create-store-donation"},{"request":"POST /","endpoint":"/command/pick/create-pick"},{"request":"POST /","endpoint":"/command/pick/cancel-pick"},{"request":"POST /","endpoint":"/command/pick/expire-pick"},{"request":"POST /","endpoint":"/command/pick/settle-payment"},{"request":"POST /","endpoint":"/command/pick/refund-pick"},{"request":"POST /","endpoint":"/command/pick/amend-pick-lines"},{"request":"GET /","endpoint":"/query/order/:orderNumber"},{"request":"GET /","endpoint":"/query/pick-line-locations"},{"request":"GET /","endpoint":"/query/pick/:pickId"},{"request":"GET /","endpoint":"/query/picklist"},{"request":"GET /","endpoint":"/query/pick-counts"},{"request":"GET /","endpoint":"/query/amendment/:amendmentId"},{"request":"GET /","endpoint":"/query/amendment-list"},{"request":"GET /","endpoint":"/query/order-amendment/:orderId"},{"request":"GET /","endpoint":"/query/parcel-labels"},{"request":"GET /","endpoint":"/query/parcels/:salesOrderId"},{"request":"GET /","endpoint":"/query/bi/order-details"}]
+[
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/:pickId/start-pick"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/:pickId/pause-pick"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/:pickId/exit-pick"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/:pickId/resume-pick"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/:pickId/line/:pickLineId/update-pick-line"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/:pickId/complete-pick"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/:pickId/start-locating"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/:pickId/complete-locating"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick-location/locate-pick-line/:aisle/:bay/:bin"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/:pickId/delocate-pick"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/:pickId/manual-delocate-pick"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/:pickId/collect-pick"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/:pickId/create-parcel"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/dispatch-pick"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/amendment/:amendmentId/start-amendment"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/amendment/:amendmentId/pause-amendment"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/amendment/:amendmentId/complete-amendment"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/amendment/delocate-pick-lines"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/amendment/unpick-pick-lines"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/carrier-details/update"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/create-store-donation"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/create-pick"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/cancel-pick"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/expire-pick"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/settle-payment"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/refund-pick"
+  },
+  {
+    "request": "POST /",
+    "req.url": "/command/pick/amend-pick-lines"
+  },
+  {
+    "request": "GET /",
+    "req.url": "/query/order/:orderNumber"
+  },
+  {
+    "request": "GET /",
+    "req.url": "/query/pick-line-locations"
+  },
+  {
+    "request": "GET /",
+    "req.url": "/query/pick/:pickId"
+  },
+  {
+    "request": "GET /",
+    "req.url": "/query/picklist"
+  },
+  {
+    "request": "GET /",
+    "req.url": "/query/pick-counts"
+  },
+  {
+    "request": "GET /",
+    "req.url": "/query/amendment/:amendmentId"
+  },
+  {
+    "request": "GET /",
+    "req.url": "/query/amendment-list"
+  },
+  {
+    "request": "GET /",
+    "req.url": "/query/order-amendment/:orderId"
+  },
+  {
+    "request": "GET /",
+    "req.url": "/query/parcel-labels"
+  },
+  {
+    "request": "GET /",
+    "req.url": "/query/parcels/:salesOrderId"
+  },
+  {
+    "request": "GET /",
+    "req.url": "/query/bi/order-details"
+  }
+]

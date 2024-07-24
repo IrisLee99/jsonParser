@@ -22,18 +22,21 @@ httpRoutes.forEach(route => {
    const url = lines[1].replaceAll(re, '').trim()
 
    // Map every endpoint to jsonString - schema?
-   const jsonString = `{"request":"${command}", "endpoint":\"${url}\"}` 
+   const jsonString = `{"request":"${command}", "req.url":\"${url}\"}` 
 
-   // Parse to JSON 
+   // Parse to JSON and combine
    const JSON_Obj = JSON.parse(jsonString)
+   console.log(JSON_Obj)
    combined = combined.concat(JSON_Obj)
 
 })
-const outputStream = JSON.stringify(combined)
-console.log(outputStream)
 
-// read in ui routes
-// src/_basket/api/index.js
+// UI routes
+// GET /static/js/app.js
+// const jsonString = '{"request":"GET", "req.url":"/static/js/app.js"}'
+
+const outputStream = JSON.stringify(combined, null, 2)
+console.log(outputStream)
 
 // file ouput
 try {
