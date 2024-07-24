@@ -4,8 +4,3 @@ reports/
 local/data
 .DS_Store
 .vscode
-.idea
-# test coverage output
-test-results.xml
-coverage
-workspace.code-workspace

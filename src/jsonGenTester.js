@@ -1,29 +1,43 @@
+// $kube-namespace
+// $kube-service
+
 // Read in dc-project/*/routes.js
-import { read, walk } from "files";
+import fs from 'fs';
 
-// Find all of the readmes
-const routesFile = await walk(".")
-  .filter(/\/routes\.js$/)
-  .map(read)
-
-const routeString = routesFile[0]
-const httpRoutes = routeString.split('httpServer.router.')
+let httpRoutes
+// Read in routes.js
+const buffer = fs.readFileSync('data/source/routes.js', 'utf8')
+const re = /[\'\,]+/g
+httpRoutes = buffer.split('httpServer.router.')
 httpRoutes.splice(0, 1)
+
 // total endpoints:
 console.log(httpRoutes.length)
 
+let combined = []
 // Check each array with command and url
 httpRoutes.forEach(route => {
    const lines = route.split('\n')
-   const command = lines[0].replace('(', '').trim().toUpperCase()
-   const re = /,\'/;
-   const url = lines[1].replace(re, '').trim()
+   const command = lines[0].replaceAll('(', ' /').trim().toUpperCase()
+   const url = lines[1].replaceAll(re, '').trim()
 
    // Map every endpoint to jsonString - schema?
-   const jsonString = `{"request":"${command}", "endpoint":"${url}"}` 
+   const jsonString = `{"request":"${command}", "endpoint":\"${url}\"}` 
 
    // Parse to JSON 
    const JSON_Obj = JSON.parse(jsonString)
-   console.log(JSON_Obj)
-})
+   combined = combined.concat(JSON_Obj)
 
+})
+const outputStream = JSON.stringify(combined)
+console.log(outputStream)
+
+// read in ui routes
+// src/_basket/api/index.js
+
+// file ouput
+try {
+  fs.writeFileSync('data/destination/output.json', outputStream)
+} catch (err) {
+   console.log(err)
+}
