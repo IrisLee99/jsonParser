@@ -18,22 +18,34 @@ let combined = []
 // Check each array with command and url
 httpRoutes.forEach(route => {
    const lines = route.split('\n')
-   const command = lines[0].replaceAll('(', ' /').trim().toUpperCase()
+   const command = lines[0].replaceAll('(', '').trim().toUpperCase()
    const url = lines[1].replaceAll(re, '').trim()
 
-   // Map every endpoint to jsonString - schema?
-   const jsonString = `{"request":"${command}", "req.url":\"${url}\"}` 
+   const statusCode = {
+      code23: "(2* OR 3*)",
+      code4: "4*",
+      code5: "5*"
+   }
+
+   // Map every endpoint to jsonString
+   const jsonString1 = `{"@req.url":\"${url}\", "@req.method":"${command}", "@req.statusCode": "${statusCode.code23}"}` 
+   const jsonString2 = `{"@req.url":\"${url}\", "@req.method":"${command}", "@req.statusCode": "${statusCode.code4}"}` 
+   const jsonString3 = `{"@req.url":\"${url}\", "@req.method":"${command}", "@req.statusCode": "${statusCode.code5}"}` 
+
 
    // Parse to JSON and combine
-   const JSON_Obj = JSON.parse(jsonString)
-   console.log(JSON_Obj)
-   combined = combined.concat(JSON_Obj)
+   const JsonObj1 = JSON.parse(jsonString1)
+   const JsonObj2 = JSON.parse(jsonString2)
+   const JsonObj3 = JSON.parse(jsonString3)
+
+   console.log(JsonObj1, JsonObj2, JsonObj3)
+   combined = combined.concat(JsonObj1, JsonObj2, JsonObj3)
 
 })
 
 // UI routes
 // GET /static/js/app.js
-// const jsonString = '{"request":"GET", "req.url":"/static/js/app.js"}'
+// const jsonString = '{"req.url":"/static/js/app.js", "req.method":"GET"}'
 
 const outputStream = JSON.stringify(combined, null, 2)
 console.log(outputStream)
