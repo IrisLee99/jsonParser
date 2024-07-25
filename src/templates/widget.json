@@ -1,10 +1,7 @@
 {
-  "title": "Jies test board",
-  "description": "isf routes",
-  "widgets": {
-    "id": "6748651480114544}",
+    "id": "{{id}}}",
     "definition": {
-      "title": "Response Time (s)",
+      "title": "{{title}}",
       "title_size": "16",
       "title_align": "left",
       "show_legend": true,
@@ -42,9 +39,7 @@
               },
               "group_by": [],
               "search": {
-                "query": {
-                  "query": "$kube-namespace $service @req.url:\\/query\\/bi\\/order-details/* @req.method:GET @req.statusCode:(2* OR 3*)"
-                }
+                "query": "{{query}}}"
               },
               "storage": "hot"
             }
@@ -69,59 +64,4 @@
       "width": 4,
       "height": 2
     }
-  },
-  "template_variables": [
-    {
-      "name": "kube-deployment",
-      "prefix": "kube_deployment",
-      "available_values": [
-        "isf"
-      ],
-      "default": "isf"
-    },
-    {
-      "name": "kube-service",
-      "prefix": "kube_service",
-      "available_values": [
-        "isf"
-      ],
-      "default": "isf"
-    },
-    {
-      "name": "kube-namespace",
-      "prefix": "kube_namespace",
-      "available_values": [
-        "dc-production"
-      ],
-      "default": "dc-production"
-    },
-    {
-      "name": "service",
-      "prefix": "service",
-      "available_values": [
-        "isf"
-      ],
-      "default": "isf"
-    },
-    {
-      "name": "ingress",
-      "prefix": "@traefik.name",
-      "available_values": [
-        "dc-production-*"
-      ],
-      "default": "dc-production-*"
-    },
-    {
-      "name": "ingress-url-prefix",
-      "prefix": "@http.url",
-      "available_values": [
-        "/isf*"
-      ],
-      "default": "/isf*"
-    }
-  ],
-  "layout_type": "ordered",
-  "notify_list": [],
-  "reflow_type": "fixed",
-  "tags": []
-}
+  }

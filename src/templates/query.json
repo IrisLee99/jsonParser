@@ -1,0 +1,16 @@
+{
+    "search": {
+      "query": "{{query}}"
+    },
+    "data_source": "logs",
+    "compute": {
+      "aggregation": "count"
+    },
+    "name": "query1",
+    "storage": "hot",
+    "indexes": [
+      "*"
+    ],
+    "group_by": []
+  }
+  

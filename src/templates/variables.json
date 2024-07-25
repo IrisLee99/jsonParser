@@ -1,0 +1,50 @@
+[
+    {
+      "name": "kube-deployment",
+      "prefix": "kube_deployment",
+      "available_values": [
+        "{{service}}"
+      ],
+      "default": "{{service}}"
+    },
+    {
+      "name": "kube-service",
+      "prefix": "kube_service",
+      "available_values": [
+        "{{service}}"
+      ],
+      "default": "{{service}}"
+    },
+    {
+      "name": "kube-namespace",
+      "prefix": "kube_namespace",
+      "available_values": [
+        "{{namespace}}"
+      ],
+      "default": "{{namespace}}"
+    },
+    {
+      "name": "service",
+      "prefix": "service",
+      "available_values": [
+        "{{service}}"
+      ],
+      "default": "{{service}}"
+    },
+    {
+      "name": "ingress",
+      "prefix": "@traefik.name",
+      "available_values": [
+        "{{namespace}}-*"
+      ],
+      "default": "{{namespace}}-*"
+    },
+    {
+      "name": "ingress-url-prefix",
+      "prefix": "@http.url",
+      "available_values": [
+        "/{{service}}*"
+      ],
+      "default": "/{{service}}*"
+    }
+  ]

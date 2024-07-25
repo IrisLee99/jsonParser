@@ -4,9 +4,10 @@
     "type": "module",
     "main": "src/jsonGenTester.js",
     "scripts": {
-    "start": "node src/jsonGenTester.js"
+        "start": "node src/jsonGenTester.js"
     },
     "dependencies": {
-        "files": "^3.0.1"
+        "files": "^3.0.1",
+        "json-templater": "^1.2.0"
     }
 }
