@@ -2,9 +2,9 @@
     "name": "json-parser",
     "author": "jie",
     "type": "module",
-    "main": "src/jsonGenTester.js",
+    "main": "src/main.js",
     "scripts": {
-        "start": "node src/jsonGenTester.js"
+        "start": "node src/main.js"
     },
     "dependencies": {
         "files": "^3.0.1",
