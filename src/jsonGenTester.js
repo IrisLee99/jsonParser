@@ -13,7 +13,7 @@ const statuses = {
    code5: "5*"
 }
 const prefix = '$kube-namespace $service'
-const buffer = fs.readFileSync('data/source/routes.js', 'utf8')
+const buffer = fs.readFileSync('data/source/isf.routes.js', 'utf8')
 const re = /[\'\,]+/g
 
 let httpRoutes = buffer.split('httpServer.router.')
@@ -23,7 +23,6 @@ httpRoutes.splice(0, 1)
 console.log(httpRoutes.length)
 
 let combined = []
-let aWidget
 // Check each array with command and url
 httpRoutes.forEach(route => {
    const lines = route.split('\n')
@@ -40,28 +39,44 @@ httpRoutes.forEach(route => {
    const JsonObj2 = JSON.parse(query2)
    const JsonObj3 = JSON.parse(query3)
 
-   // render a widget - a test sample
-   aWidget = object(
-      widget,
-      {
-         id: 6748651480114544,
-         title: 'Response Time (s)',
-         query: JsonObj1
-      }
-)
-   console.log(JsonObj1, JsonObj2, JsonObj3)
-   combined = combined.concat(JsonObj1, JsonObj2, JsonObj3)
+   // render widgets here
+   // ???
+   const routeWidgets = [
+      object(
+         widget,
+         {
+            id: 6748651480114544,
+            title: 'Response Time (s)',
+            query: JsonObj1
+         }),
+      object(
+         widget,
+         {
+            id: 6748651480114545,
+            title: 'Response Time (s)',
+            query: JsonObj2
+         }),
+      object(
+         widget,
+         {
+            id: 6748651480114546,
+            title: 'Response Time (s)',
+            query: JsonObj3
+         })      
+   ]
 
+   // ???? flat the below
+   combined.splice(combined.length, 0, routeWidgets)
 })
 
 // UI routes
 // GET /static/js/app.js
 // const jsonString = '{"req.url":"/static/js/app.js", "req.method":"GET"}'
 
-const routes = JSON.stringify(combined, null, 2)
-console.log(routes)
+// const routes = JSON.stringify(combined, null, 2)
+console.log(combined)
 
-// render variables
+// render template variables
 const variables = object(
    templateVariables,
    {
@@ -69,6 +84,7 @@ const variables = object(
       namespace: 'dc-production'
    }
 )
+
 // render dashboard template
 const outputStream = JSON.stringify(
    object(
@@ -76,14 +92,14 @@ const outputStream = JSON.stringify(
    { 
       title: 'Jies test board', 
       description: 'isf routes',
-      widgets: aWidget,  // make it an array
+      widgets: combined,
       variables: variables }
  ), null, 2)
  console.log(outputStream)
 
 // file ouput
 try {
-  fs.writeFileSync('data/destination/output.json', outputStream)
+  fs.writeFileSync('data/destination/dashboard.output.json', outputStream)
 } catch (err) {
    console.log(err)
 }
