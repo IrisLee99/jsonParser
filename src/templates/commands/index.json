@@ -7,7 +7,8 @@
     "layout_type": "ordered",
     "widgets": [
       "{{firstWidget}}",
-      "{{responseTimeSWidget}}"
+      "{{responseTimeSWidget}}",
+      "{{responseTimeP99Widget}}"
     ]
   },
   "layout": {

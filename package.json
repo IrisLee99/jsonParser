@@ -8,6 +8,6 @@
     },
     "dependencies": {
         "files": "^3.0.1",
-        "json-templater": "^1.2.0"
+        "json-templates": "^5.1.0"
     }
 }

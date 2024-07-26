@@ -1,8 +1,10 @@
-import { object } from "json-templater"
+import parse from "json-templates"
 
 import query from "./templates/commands/elements/query.json" assert { type: "json" }
-import firstTemplate from "./templates/commands/first.json" assert { type: "json" }
+import first from "./templates/commands/first.json" assert { type: "json" }
 
+const firstTemplate = parse(first)
+const queryTemplate = parse(query)
 const prefix = "$kube-namespace $service"
 
 export default function constructFirstWidget ({ urlTitle, url, statusCodes, command }) {
@@ -15,7 +17,7 @@ export default function constructFirstWidget ({ urlTitle, url, statusCodes, comm
       // const JsonObj = JSON.parse(query)
 
       // render a command query per status code
-      const commandQuery = object(query, {
+      const commandQuery = queryTemplate({
         name: cName,
         query: cQuery,
       })
@@ -37,7 +39,7 @@ export default function constructFirstWidget ({ urlTitle, url, statusCodes, comm
 
     console.log(cQueries)
 
-    return object(firstTemplate, {
+    return firstTemplate({
       command,
       urlTitle,
       queries: cQueries

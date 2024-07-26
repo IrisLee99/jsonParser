@@ -1,13 +1,18 @@
 // Read in dc-project/*/routes.js
 import fs from "fs"
-import object from "json-templater/object.js"
+import parse from "json-templates"
 
-import constructFirstWidget from "./constructFirstWidget.js"
-import constructResponseTimeWidget from "./constructResponseTimeWidget.js"
+import buildFirstWidget from "./buildFirstWidget.js"
+import buildResponseTimeWidget from "./buildResponseTimeWidget.js"
+import buildResponseCountWidgets from "./buildResponseCountWidgets.js"
 
-import templateVariablesTemplate from "./templates/variables.json" assert { type: "json" }
-import dashboardTemplate from "./templates/dashboard.json" assert { type: "json" }
-import commandsTemplate from "./templates/commands/index.json" assert { type: "json" }
+import templateVariables from "./templates/variables.json" assert { type: "json" }
+import dashboard from "./templates/dashboard.json" assert { type: "json" }
+import commands from "./templates/commands/index.json" assert { type: "json" }
+
+const dashboardTemplate = parse(dashboard)
+const templateVariablesTemplate = parse(templateVariables)
+const commandsTemplate = parse(commands)
 
 export default function dashboardGenerator({ service, description, routeFile }) {
   // Read in routes.js
@@ -40,12 +45,16 @@ export default function dashboardGenerator({ service, description, routeFile }) 
     )
     console.log(url)
 
-    const firstWidget = constructFirstWidget({ urlTitle, url, statusCodes, command })
-    const responseTimeSWidget = constructResponseTimeWidget({ url, command })
+    const firstWidget = buildFirstWidget({ urlTitle, url, statusCodes, command })
+    const responseTimeSWidget = buildResponseTimeWidget({ type: 'seconds', url, command })
+    const responseTimeP99Widget = buildResponseTimeWidget({ type: 'p99', url, command })
+    const responseWidgets = buildResponseCountWidgets({ url, statusCodes, command })
 
-    commandWidgets = object(commandsTemplate, {
+    commandWidgets = commandsTemplate({
       firstWidget,
-      responseTimeSWidget
+      responseTimeSWidget,
+      responseTimeP99Widget,
+      responseWidgets
     })
   })
 
@@ -54,7 +63,7 @@ export default function dashboardGenerator({ service, description, routeFile }) 
   // const jsonString = '{"req.url":"/static/js/app.js", "req.method":"GET"}'
 
   // render template variables
-  const variables = object(templateVariablesTemplate, {
+  const variables = templateVariablesTemplate({
     service,
     namespace: "dc-sit-f",
   })
@@ -66,7 +75,7 @@ export default function dashboardGenerator({ service, description, routeFile }) 
 
   // render dashboard template
   const outputStream = JSON.stringify(
-    object(dashboardTemplate, {
+    dashboardTemplate({
       title: service,
       description: description,
       widgets: [commandWidgets],
