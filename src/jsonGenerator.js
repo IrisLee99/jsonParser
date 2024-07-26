@@ -26,17 +26,30 @@ export default function jsonGenerator({ service, description, routeFile }) {
   let routeWidgets = []
   let commandQueries = []
   let firstWidget
+  let commandWidget
   // Check each array with command and url
   httpRoutes.forEach((route) => {
     const lines = route.split("\n")
     const command = lines[0].replaceAll("(", "").trim().toUpperCase()
-    const url = lines[1].replaceAll(re, "").trim().replaceAll("/", "\\\\/")
+    const urlTitle = lines[1].replaceAll(re, "").trim()
+
+    // remove variables in query url
+    const strings = urlTitle.split("/").filter(str => str !== '').map( str => { 
+      if (str.startsWith(':')) return '*'
+      else return str 
+    })
+    console.log(strings)
+    const url = strings.reduce(
+      (accumulator, currentValue) => accumulator.concat(`/${currentValue}`),
+      '',
+    );
+    console.log(url)
 
     // Map every endpoint to jsonString
     let count = 1
     statusCodes.forEach((code) => {
       const cName = `query${count}`
-      const cQuery = `@res.statusCode:${code} prefix @req.url:${url} @req.method:${command}`
+      const cQuery = `@res.statusCode:${code} ${prefix} @req.url:${url} @req.method:${command}`
       // const query = `{"query": "${prefix} @req.url:${url}/* @req.method:${command} @req.statusCode:${code}"}`
       // const JsonObj = JSON.parse(query)
 
@@ -65,13 +78,12 @@ export default function jsonGenerator({ service, description, routeFile }) {
 
     firstWidget = object(firstWidgetTemplate, {
       command,
-      url,
+      urlTitle,
       queries: commandQueries
     })
 
-    const commands = object(commandsTemplate, {
-      firstWidget,
-      respondTimeS
+    commandWidget = object(commandsTemplate, {
+      firstWidget
     })
 
   })
@@ -96,7 +108,7 @@ export default function jsonGenerator({ service, description, routeFile }) {
     object(dashboard, {
       title: service,
       description: description,
-      widgets: [firstWidget],
+      widgets: [commandWidget],
       variables: variables,
     }, null, 2)
   )

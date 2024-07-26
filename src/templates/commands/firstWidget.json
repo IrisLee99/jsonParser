@@ -1,7 +1,7 @@
 {
     "id": 1210688252528548,
     "definition": {
-        "title": "{{command}} {{url}}",
+        "title": "{{command}} {{urlTitle}}",
         "title_size": "16",
         "title_align": "left",
         "show_legend": true,
