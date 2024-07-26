@@ -5,11 +5,7 @@
     "show_title": true,
     "type": "group",
     "layout_type": "ordered",
-    "widgets": [
-      "{{firstWidget}}",
-      "{{responseTimeSWidget}}",
-      "{{responseTimeP99Widget}}"
-    ]
+    "widgets": "{{widgets}}"
   },
   "layout": {
     "x": 0,

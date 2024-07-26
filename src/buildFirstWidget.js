@@ -37,8 +37,6 @@ export default function constructFirstWidget ({ urlTitle, url, statusCodes, comm
       count = count + 1
     })
 
-    console.log(cQueries)
-
     return firstTemplate({
       command,
       urlTitle,

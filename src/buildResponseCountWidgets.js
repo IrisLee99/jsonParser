@@ -12,13 +12,20 @@ export default function buildResponseCountWidgets ({ url, statusCodes, command  
     statusCodes.forEach( code => {
     
     const query = `@res.statusCode:${code} ${prefix} @req.url:${url} @req.method:${command}`
-    const colour = code.startsWith('2') ? 'green' : 'yellow'
 
+    let colour = 'green'
+    if (code.startsWith('4')) colour = 'yellow'
+    else if (code.startsWith('5')) colour = 'red'
+    
+    const width = code.startsWith('(2') ? 2 : 1
+    console.log(code)
+    console.log('width: ' + width)
     const template = parse(responseCount)
     const aWidget = template({
             title: code,
             query,
-            colour
+            colour,
+            width
         })
 
         widgets.push(aWidget)

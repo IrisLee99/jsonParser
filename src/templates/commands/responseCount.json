@@ -43,7 +43,7 @@
   "layout": {
     "x": 10,
     "y": 1,
-    "width": 1,
+    "width": "{{width}}",
     "height": 1
   }
 }

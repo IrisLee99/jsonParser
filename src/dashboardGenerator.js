@@ -50,11 +50,14 @@ export default function dashboardGenerator({ service, description, routeFile }) 
     const responseTimeP99Widget = buildResponseTimeWidget({ type: 'p99', url, command })
     const responseWidgets = buildResponseCountWidgets({ url, statusCodes, command })
 
-    commandWidgets = commandsTemplate({
+    const widgets = [
       firstWidget,
       responseTimeSWidget,
       responseTimeP99Widget,
-      responseWidgets
+      responseWidgets].flat()
+
+    commandWidgets = commandsTemplate({
+      widgets
     })
   })
 
@@ -82,8 +85,7 @@ export default function dashboardGenerator({ service, description, routeFile }) 
       variables: variables,
     }, null, 2)
   )
-  console.log(outputStream)
-
+  
   // file ouput
   try {
     fs.writeFileSync("data/destination/output.json", outputStream)
