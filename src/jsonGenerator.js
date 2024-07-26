@@ -2,9 +2,12 @@
 import fs from "fs"
 import object from "json-templater/object.js"
 
-import widget from "./templates/widget.json" assert { type: "json" }
+import firstWidgetTemplate from "./templates/commands/firstWidget.json" assert { type: "json" }
+import respondTimeS from "./templates/commands/respondTimeS.json" assert { type: "json" }
 import templateVariables from "./templates/variables.json" assert { type: "json" }
 import dashboard from "./templates/dashboard.json" assert { type: "json" }
+import commandsTemplate from "./templates/commands/commands.json" assert { type: "json" }
+import query from "./templates/commands/elements/query.json" assert { type: "json" }
 
 export default function jsonGenerator({ service, description, routeFile }) {
   // Read in routes.js
@@ -21,6 +24,8 @@ export default function jsonGenerator({ service, description, routeFile }) {
   console.log(httpRoutes.length)
 
   let routeWidgets = []
+  let commandQueries = []
+  let firstWidget
   // Check each array with command and url
   httpRoutes.forEach((route) => {
     const lines = route.split("\n")
@@ -28,23 +33,48 @@ export default function jsonGenerator({ service, description, routeFile }) {
     const url = lines[1].replaceAll(re, "").trim().replaceAll("/", "\\\\/")
 
     // Map every endpoint to jsonString
+    let count = 1
     statusCodes.forEach((code) => {
-      const query = `{"query": "${prefix} @req.url:${url}/* @req.method:${command} @req.statusCode:${code}"}`
-      const JsonObj = JSON.parse(query)
+      const cName = `query${count}`
+      const cQuery = `@res.statusCode:${code} prefix @req.url:${url} @req.method:${command}`
+      // const query = `{"query": "${prefix} @req.url:${url}/* @req.method:${command} @req.statusCode:${code}"}`
+      // const JsonObj = JSON.parse(query)
 
-      //render a widget per query
-      const routeWidget = object(widget, {
-        id: baseId + routeWidgets.length,
-        title: "Response Time (s)",
-        query: JsonObj,
+      // render a command query per status code
+      const commandQuery = object(query, {
+        name: cName,
+        query: cQuery,
       })
 
-      //combine all route widgets
-      routeWidgets.splice(routeWidgets.length, 0, routeWidget)
-    })
-  })
+      //render a widget per query
+      // const routeWidget = object(respondTimeS, {
+      //   id: baseId + routeWidgets.length,
+      //   title: "Response Time (s)",
+      //   query: JsonObj,
+      // })
 
-  console.log(routeWidgets)
+      //combine all route widgets
+      // routeWidgets.splice(routeWidgets.length, 0, routeWidget)
+
+      //combine all command queries
+      commandQueries.splice(commandQueries.length, 0, commandQuery)
+      count = count + 1
+    })
+
+    console.log(commandQueries)
+
+    firstWidget = object(firstWidgetTemplate, {
+      command,
+      url,
+      queries: commandQueries
+    })
+
+    const commands = object(commandsTemplate, {
+      firstWidget,
+      respondTimeS
+    })
+
+  })
 
   // UI routes
   // GET /static/js/app.js
@@ -66,7 +96,7 @@ export default function jsonGenerator({ service, description, routeFile }) {
     object(dashboard, {
       title: service,
       description: description,
-      widgets: routeWidgets,
+      widgets: [firstWidget],
       variables: variables,
     }, null, 2)
   )

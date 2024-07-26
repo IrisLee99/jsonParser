@@ -1,0 +1,62 @@
+{
+    "id": 1210688252528548,
+    "definition": {
+        "title": "{{command}} {{url}}",
+        "title_size": "16",
+        "title_align": "left",
+        "show_legend": true,
+        "legend_layout": "auto",
+        "legend_columns": [
+            "avg",
+            "min",
+            "max",
+            "value",
+            "sum"
+        ],
+        "type": "timeseries",
+        "requests": [
+            {
+                "formulas": [
+                    {
+                        "alias": "2xx and 3xx",
+                        "style": {
+                            "palette_index": 5,
+                            "palette": "green"
+                        },
+                        "formula": "query1"
+                    },
+                    {
+                        "alias": "4xx",
+                        "style": {
+                            "palette_index": 3,
+                            "palette": "warm"
+                        },
+                        "formula": "query2"
+                    },
+                    {
+                        "alias": "5xx",
+                        "style": {
+                            "palette_index": 5,
+                            "palette": "warm"
+                        },
+                        "formula": "query3"
+                    }
+                ],
+                "queries": "{{queries}}",
+                "response_format": "timeseries",
+                "style": {
+                    "palette": "green",
+                    "line_type": "solid",
+                    "line_width": "normal"
+                },
+                "display_type": "line"
+            }
+        ]
+    },
+    "layout": {
+        "x": 0,
+        "y": 18,
+        "width": 4,
+        "height": 2
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "id": 837844292018784,
+  "definition": {
+    "title": "Commands",
+    "show_title": true,
+    "type": "group",
+    "layout_type": "ordered",
+    "widgets": [
+      "{{firstWidget}}"
+    ]
+  },
+  "layout": {
+    "x": 0,
+    "y": 3,
+    "width": 12,
+    "height": 37
+  }
+}
