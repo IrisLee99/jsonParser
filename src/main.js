@@ -1,7 +1,7 @@
-import jsonGenerator from './jsonGenerator.js'
+import dashboardGenerator from './dashboardGenerator.js'
 
-const service = 'DCOL - isf'
+const service = 'isf'
 const description = '## Digital Colleagues - dc-isf Service'
 const routeFile = 'data/source/isf.routes.single.js'
 
-jsonGenerator({ service, description, routeFile })
+dashboardGenerator({ service, description, routeFile })

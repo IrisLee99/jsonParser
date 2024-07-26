@@ -6,7 +6,8 @@
     "type": "group",
     "layout_type": "ordered",
     "widgets": [
-      "{{firstWidget}}"
+      "{{firstWidget}}",
+      "{{responseTimeSWidget}}"
     ]
   },
   "layout": {

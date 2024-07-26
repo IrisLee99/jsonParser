@@ -1,7 +1,7 @@
 {
     "id": 6748651480114544,
     "definition": {
-      "title": "{{title}}",
+      "title": "Response Time (s)",
       "title_size": "16",
       "title_align": "left",
       "show_legend": true,
@@ -39,7 +39,7 @@
               },
               "group_by": [],
               "search": {
-                "query": "{{query}}}"
+                "query": "{{query}}"
               },
               "storage": "hot"
             }
