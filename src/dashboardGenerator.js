@@ -9,10 +9,13 @@ import buildResponseCountWidgets from "./buildResponseCountWidgets.js"
 import templateVariables from "./templates/variables.json" assert { type: "json" }
 import dashboard from "./templates/dashboard.json" assert { type: "json" }
 import commands from "./templates/commands/index.json" assert { type: "json" }
+import queries from "./templates/queries/index.json" assert { type: "json" }
 
 const dashboardTemplate = parse(dashboard)
 const templateVariablesTemplate = parse(templateVariables)
 const commandsTemplate = parse(commands)
+const queriesTemplate = parse(queries)
+
 
 export default function dashboardGenerator({ service, description, routeFile }) {
   // Read in routes.js
@@ -27,7 +30,7 @@ export default function dashboardGenerator({ service, description, routeFile }) 
   console.log(httpRoutes.length)
 
   let routeWidgets = []
-  let commandWidgets
+  let cWidgets = [], qWidgets = [],commandWidgets, queryWidgets
   // Check each array with command and url
   httpRoutes.forEach((route) => {
     const lines = route.split("\n")
@@ -60,10 +63,20 @@ export default function dashboardGenerator({ service, description, routeFile }) 
       responseTimeP95Widget,
       responseWidgets].flat()
 
+      if ( command === 'POST') {
     commandWidgets = commandsTemplate({
-      widgets
+      widgets: widgets
     })
+  } else {
+
+    queryWidgets = queriesTemplate({
+      widgets: widgets
+    })
+  }
   })
+
+  console.log(commandWidgets)
+  console.log(queryWidgets)
 
   // UI routes
   // GET /static/js/app.js
@@ -85,7 +98,7 @@ export default function dashboardGenerator({ service, description, routeFile }) 
     dashboardTemplate({
       title: service,
       description: description,
-      widgets: [commandWidgets],
+      widgets: [commandWidgets, queryWidgets].flat(),
       variables: variables,
     }, null, 2)
   )

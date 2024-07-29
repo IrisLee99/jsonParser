@@ -16,14 +16,15 @@ export default function buildResponseCountWidgets ({ url, statusCodes, command  
     let colour = 'green'
     if (code.startsWith('4')) colour = 'yellow'
     else if (code.startsWith('5')) colour = 'red'
-    
+
     const width = code.startsWith('(2') ? 2 : 1
     const x = code.startsWith('5') ? 11 : 10
-    console.log(code)
-    console.log('width: ' + width)
+    const title = code.replaceAll('*' , 'xx').replace('OR', 'and')
+    console.log(title)
+
     const template = parse(responseCount)
     const aWidget = template({
-            title: code,
+            title,
             query,
             colour,
             width,

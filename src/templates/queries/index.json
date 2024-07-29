@@ -1,0 +1,17 @@
+{
+    "id": 837844292018784,
+    "definition": {
+      "title": "Queries",
+      "show_title": true,
+      "type": "group",
+      "layout_type": "ordered",
+      "widgets": "{{widgets}}"
+    },
+    "layout": {
+      "x": 0,
+      "y": 0,
+      "width": 12,
+      "height": 21
+    }
+  }
+  
