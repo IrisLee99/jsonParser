@@ -3,7 +3,7 @@ import fs from "fs"
 import parse from "json-templates"
 
 import buildFirstWidget from "./buildFirstWidget.js"
-import buildResponseTimeWidget from "./buildResponseTimeWidget.js"
+import buildResponseTimeWidgets from "./buildResponseTimeWidgets.js"
 import buildResponseCountWidgets from "./buildResponseCountWidgets.js"
 
 import templateVariables from "./templates/variables.json" assert { type: "json" }
@@ -46,14 +46,18 @@ export default function dashboardGenerator({ service, description, routeFile }) 
     console.log(url)
 
     const firstWidget = buildFirstWidget({ urlTitle, url, statusCodes, command })
-    const responseTimeSWidget = buildResponseTimeWidget({ type: 'seconds', url, command })
-    const responseTimeP99Widget = buildResponseTimeWidget({ type: 'p99', url, command })
+    const responseTimeSWidget = buildResponseTimeWidgets({ type: 'seconds', url, command })
+    const responseTimeP99Widget = buildResponseTimeWidgets({ type: 'p99', url, command, number: 99 })
+    const responseTimeP90Widget = buildResponseTimeWidgets({ type: 'p90', url, command, number: 90 })
+    const responseTimeP95Widget = buildResponseTimeWidgets({ type: 'p95', url, command, number: 95 })
     const responseWidgets = buildResponseCountWidgets({ url, statusCodes, command })
 
     const widgets = [
       firstWidget,
       responseTimeSWidget,
       responseTimeP99Widget,
+      responseTimeP90Widget,
+      responseTimeP95Widget,
       responseWidgets].flat()
 
     commandWidgets = commandsTemplate({

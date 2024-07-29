@@ -41,7 +41,7 @@
     "precision": 2
   },
   "layout": {
-    "x": 10,
+    "x": "{{x}}",
     "y": 1,
     "width": "{{width}}",
     "height": 1

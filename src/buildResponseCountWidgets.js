@@ -18,6 +18,7 @@ export default function buildResponseCountWidgets ({ url, statusCodes, command  
     else if (code.startsWith('5')) colour = 'red'
     
     const width = code.startsWith('(2') ? 2 : 1
+    const x = code.startsWith('5') ? 11 : 10
     console.log(code)
     console.log('width: ' + width)
     const template = parse(responseCount)
@@ -25,7 +26,8 @@ export default function buildResponseCountWidgets ({ url, statusCodes, command  
             title: code,
             query,
             colour,
-            width
+            width,
+            x
         })
 
         widgets.push(aWidget)
