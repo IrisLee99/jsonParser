@@ -68,9 +68,14 @@ httpServer.router.post(
   validate().body(startPick.schema.request.body),
   asyncServiceWrapper(startPick.handler))
 
-  httpServer.router.post(
-  '/command/pick/:pickId/pause-pick',
+// Queries
+httpServer.router.get(
+  '/query/order/:orderNumber',
   ...validation({ appVersionAccepted, auth }),
-  validate().params(pausePick.schema.request.params),
-  validate().body(pausePick.schema.request.body),
-  asyncServiceWrapper(pausePick.handler))
+  createSapiHeaders({ sessionName: session.name }),
+  validate().query(orderDetails.schema.request.query),
+  validate().params(orderDetails.schema.request.params),
+  validate().response(orderDetails.schema.response),
+  asyncServiceWrapper(orderDetails.handler)
+)
+

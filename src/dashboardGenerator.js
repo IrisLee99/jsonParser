@@ -30,7 +30,7 @@ export default function dashboardGenerator({ service, description, routeFile }) 
   console.log(httpRoutes.length)
 
   let routeWidgets = []
-  let cWidgets = [], qWidgets = [],commandWidgets, queryWidgets
+  let commandGroup = [], queryGroup = [], commandWidgets = [], queryWidgets = []
   // Check each array with command and url
   httpRoutes.forEach((route) => {
     const lines = route.split("\n")
@@ -61,18 +61,21 @@ export default function dashboardGenerator({ service, description, routeFile }) 
       responseTimeP99Widget,
       responseTimeP90Widget,
       responseTimeP95Widget,
-      responseWidgets].flat()
+      responseWidgets].flat(3)
 
       if ( command === 'POST') {
-    commandWidgets = commandsTemplate({
-      widgets: widgets
-    })
-  } else {
+        commandGroup.push(widgets)
+      } else {
+        queryGroup.push(widgets)
+      }
+  })
 
-    queryWidgets = queriesTemplate({
-      widgets: widgets
-    })
-  }
+  commandWidgets = commandsTemplate({
+    widgets: commandGroup.flat()
+  })
+
+  queryWidgets = queriesTemplate({
+    widgets: queryGroup.flat()
   })
 
   console.log(commandWidgets)
