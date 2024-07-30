@@ -3,7 +3,7 @@
 // @res.statusCode:5* $kube-namespace $service @req.url:\\/command\\/pick\\/*\\/start-pick @req.method:POST
 import parse from "json-templates"
 
-import responseCount from "./templates/commands/responseCount.json"  assert { type: "json" }
+import responseCount from "../templates/commands/responseCount.json"  assert { type: "json" }
 
 const prefix = '$kube-namespace $service'
 

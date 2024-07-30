@@ -59,8 +59,8 @@
       "markers": []
     },
     "layout": {
-      "x": 4,
-      "y": 6,
+      "x": "{{x}}",
+      "y": 0,
       "width": 4,
       "height": 2
     }

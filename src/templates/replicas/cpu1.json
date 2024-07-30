@@ -1,0 +1,42 @@
+{
+    "id": 5131280515486254,
+    "definition": {
+      "title": "Replicas Available",
+      "title_size": "16",
+      "title_align": "left",
+      "type": "query_value",
+      "requests": [
+        {
+          "formulas": [
+            {
+              "formula": "query1"
+            }
+          ],
+          "conditional_formats": [
+            {
+              "palette": "black_on_light_green",
+              "value": 0,
+              "comparator": ">"
+            }
+          ],
+          "response_format": "scalar",
+          "queries": [
+            {
+              "query": "sum:kubernetes_state.deployment.replicas_available{$kube-deployment}",
+              "data_source": "metrics",
+              "name": "query1",
+              "aggregator": "last"
+            }
+          ]
+        }
+      ],
+      "autoscale": true,
+      "precision": 2
+    },
+    "layout": {
+      "x": 0,
+      "y": 0,
+      "width": 2,
+      "height": 1
+    }
+  }
