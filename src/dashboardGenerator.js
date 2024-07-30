@@ -43,7 +43,7 @@ export default function dashboardGenerator({ service, description, routeFile }) 
       else return str 
     })
     const url = strings.reduce(
-      (accumulator, currentValue) => accumulator.concat(`\\\\\/${currentValue}`),
+      (accumulator, currentValue) => accumulator.concat(`\\/${currentValue}`),
       '',
     )
     console.log(url)
@@ -78,9 +78,6 @@ export default function dashboardGenerator({ service, description, routeFile }) 
     widgets: queryGroup.flat()
   })
 
-  console.log(commandWidgets)
-  console.log(queryWidgets)
-
   // UI routes
   // GET /static/js/app.js
   // const jsonString = '{"req.url":"/static/js/app.js", "req.method":"GET"}'
@@ -88,7 +85,7 @@ export default function dashboardGenerator({ service, description, routeFile }) 
   // render template variables
   const variables = templateVariablesTemplate({
     service,
-    namespace: "dc-sit-f",
+    namespace: "dcol-sit-f",
   })
 
   // TODO: render other widgets - using widget.json or other templates
@@ -99,7 +96,7 @@ export default function dashboardGenerator({ service, description, routeFile }) 
   // render dashboard template
   const outputStream = JSON.stringify(
     dashboardTemplate({
-      title: service,
+      title: service.toUpperCase(),
       description: description,
       widgets: [commandWidgets, queryWidgets].flat(),
       variables: variables,
