@@ -5,7 +5,7 @@ import parse from 'json-templates'
 import buildPrimaryWidget from './endpoints/buildPrimaryWidget.js'
 import buildResponseTimeWidgets from './endpoints/buildResponseTimeWidgets.js'
 import buildResponseCountWidgets from './endpoints/buildResponseCountWidgets.js'
-import buildReplicaPrimaryWidgets from './replicas/buildPrimaryWidgets.js'
+import buildLoadWidgets from './replicas/buildLoadWidgets.js'
 
 import templateVariables from './templates/variables.json' assert { type: 'json' }
 import dashboard from './templates/dashboard.json' assert { type: 'json' }
@@ -21,9 +21,10 @@ const queriesTemplate = parse(queries)
 export default function dashboardGenerator({ service, description, routeFile }) {
 
   const titles = ['CPU Load', 'Memory Load']
+  const types = ['percentage', 'count']
   // 1. CPU Load - Current/Desired/Unavailable/Max/Requested
   // 2. Memory Load - Current/Desired/Unavailable/Max/Requested
-  const replicaPrimaryWidgets = buildReplicaPrimaryWidgets({ titles })
+  const replicaWidgets = buildLoadWidgets({ titles, types })
 
   // Read in routes.js
   const statusCodes = ['(2* OR 3*)', '4*', '5*']
@@ -93,7 +94,7 @@ export default function dashboardGenerator({ service, description, routeFile }) 
     dashboardTemplate({
       title: service.toUpperCase(),
       description: description,
-      widgets: [replicaPrimaryWidgets, commandWidgets, queryWidgets].flat(),
+      widgets: [replicaWidgets, commandWidgets, queryWidgets].flat(),
       variables: variables,
     }, null, 2)
   )

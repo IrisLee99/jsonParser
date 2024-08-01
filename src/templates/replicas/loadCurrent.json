@@ -1,0 +1,38 @@
+{
+  "id": 2849847913584174,
+  "definition": {
+    "title": "Current - count",
+    "title_size": "16",
+    "title_align": "left",
+    "type": "query_value",
+    "requests": [
+      {
+        "formulas": [
+          {
+            "formula": "{{formula}}",
+            "limit": {
+              "order": "desc"
+            }
+          }
+        ],
+        "response_format": "scalar",
+        "queries": [
+          {
+            "query": "{{query1}}",
+            "data_source": "metrics",
+            "name": "query1",
+            "aggregator": "avg"
+          }
+        ]
+      }
+    ],
+    "autoscale": true,
+    "precision": 2
+  },
+  "layout": {
+    "x": "{{x}}",
+    "y": 0,
+    "width": 1,
+    "height": 1
+  }
+}

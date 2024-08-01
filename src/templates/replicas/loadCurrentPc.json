@@ -1,0 +1,62 @@
+{
+    "id": 1058948292013744,
+    "definition": {
+      "title": "Current - %",
+      "title_size": "16",
+      "title_align": "left",
+      "type": "query_value",
+      "requests": [
+        {
+          "formulas": [
+            {
+              "formula": "{{formula}}",
+              "limit": {
+                "order": "desc"
+              }
+            }
+          ],
+          "response_format": "scalar",
+          "queries": [
+            {
+              "query": "{{query1}}",
+              "data_source": "metrics",
+              "name": "query1",
+              "aggregator": "last"
+            },
+            {
+              "query": "{{query2}}",
+              "data_source": "metrics",
+              "name": "query2",
+              "aggregator": "avg"
+            }
+          ],
+          "conditional_formats": [
+            {
+              "comparator": "<=",
+              "value": 70,
+              "palette": "black_on_light_green"
+            },
+            {
+              "comparator": "<=",
+              "value": 90,
+              "palette": "black_on_light_yellow"
+            },
+            {
+              "comparator": ">=",
+              "value": 90,
+              "palette": "black_on_light_red"
+            }
+          ]
+        }
+      ],
+      "autoscale": true,
+      "custom_unit": "%",
+      "precision": 2
+    },
+    "layout": {
+      "x": "{{x}}",
+      "y": 0,
+      "width": 1,
+      "height": 1
+    }
+  }
