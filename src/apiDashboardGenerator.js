@@ -86,7 +86,7 @@ export default function apiDashboardGenerator({ service, description, routeFile 
   // render template variables
   const variables = templateVariablesTemplate({
     service,
-    namespace: 'dcol-sit-f',
+    namespace: 'dcol-sit-h',
   })
 
   // render dashboard template
@@ -101,7 +101,7 @@ export default function apiDashboardGenerator({ service, description, routeFile 
   
   // file ouput
   try {
-    fs.writeFileSync('data/destination/output.json', outputStream)
+    fs.writeFileSync('data/destination/APIoutput.json', outputStream)
   } catch (err) {
     console.log('Cannot generate api dashboard with error: ' + err)
   }

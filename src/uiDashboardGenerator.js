@@ -8,7 +8,7 @@ import templateVariables from './templates/variables.json' assert { type: 'json'
 const dashboardTemplate = parse(dashboard)
 const templateVariablesTemplate = parse(templateVariables)
 
-export default function uiDashboardGenerator({ service, description, routeFile }) {
+export default function uiDashboardGenerator({ service, description }) {
 
   const titles = ['CPU Load', 'Memory Load']
   const types = ['percentage', 'count']
@@ -29,8 +29,8 @@ export default function uiDashboardGenerator({ service, description, routeFile }
 
   // render template variables
   const variables = templateVariablesTemplate({
-    service,
-    namespace: 'dcol-ui',
+    service: 'ui',
+    namespace: 'dcol-sit-h',
   })
 
   // render dashboard template
@@ -44,7 +44,7 @@ export default function uiDashboardGenerator({ service, description, routeFile }
   )
 
   try {
-    fs.writeFileSync('data/destination/output.json', outputStream)
+    fs.writeFileSync('data/destination/UIoutput.json', outputStream)
   } catch (err) {
     console.log('Cannot generate ui dashboard with error: ' + err)
   }
