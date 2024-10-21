@@ -93,7 +93,7 @@ export default function apiDashboardGenerator({ service, description, routeFile 
   const outputStream = JSON.stringify(
     dashboardTemplate({
       title: service.toUpperCase(),
-      description: description,
+      description,
       widgets: [replicaWidgets, commandWidgets, queryWidgets].flat(),
       variables: variables,
     }, null, 2)
