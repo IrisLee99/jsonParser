@@ -18,7 +18,7 @@ const commandsTemplate = parse(commands)
 const queriesTemplate = parse(queries)
 
 
-export default function dashboardGenerator({ service, description, routeFile }) {
+export default function apiDashboardGenerator({ service, description, routeFile }) {
 
   const titles = ['CPU Load', 'Memory Load']
   const types = ['percentage', 'count']
@@ -103,6 +103,6 @@ export default function dashboardGenerator({ service, description, routeFile }) 
   try {
     fs.writeFileSync('data/destination/output.json', outputStream)
   } catch (err) {
-    console.log(err)
+    console.log('Cannot generate api dashboard with error: ' + err)
   }
 }
