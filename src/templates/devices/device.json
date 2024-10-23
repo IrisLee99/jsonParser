@@ -1,0 +1,52 @@
+{
+    "id": 8670989907772962,
+    "definition": {
+      "title": "{{title}}",
+      "title_size": "16",
+      "title_align": "left",
+      "type": "query_value",
+      "requests": [
+        {
+          "response_format": "scalar",
+          "queries": [
+            {
+              "data_source": "logs",
+              "name": "query1",
+              "search": {
+                "query": "$service $kube-namespace @http.user_agent:*{{deviceType}}*"
+              },
+              "indexes": [
+                "*"
+              ],
+              "compute": {
+                "aggregation": "cardinality",
+                "metric": "@network.client_ip"
+              },
+              "group_by": [],
+              "storage": "hot"
+            }
+          ],
+          "formulas": [
+            {
+              "formula": "query1"
+            }
+          ],
+          "conditional_formats": [
+            {
+              "comparator": ">",
+              "value": 0,
+              "palette": "{{pallette}}"
+            }
+          ]
+        }
+      ],
+      "autoscale": true,
+      "precision": 2
+    },
+    "layout": {
+      "x": "{{x}}",
+      "y": 0,
+      "width": 2,
+      "height": 1
+    }
+  }

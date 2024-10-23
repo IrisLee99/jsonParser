@@ -1,0 +1,66 @@
+{
+    "id": 3942846529159246,
+    "definition": {
+      "title": "Top User Agents",
+      "title_size": "16",
+      "title_align": "left",
+      "type": "query_table",
+      "requests": [
+        {
+          "queries": [
+            {
+              "data_source": "logs",
+              "name": "query1",
+              "search": {
+                "query": "$service $kube-namespace"
+              },
+              "indexes": [
+                "*"
+              ],
+              "compute": {
+                "aggregation": "cardinality",
+                "metric": "@network.client_ip"
+              },
+              "group_by": [
+                {
+                  "facet": "@http.user_agent",
+                  "limit": 100,
+                  "sort": {
+                    "aggregation": "cardinality",
+                    "order": "desc",
+                    "metric": "@network.client_ip"
+                  }
+                }
+              ],
+              "storage": "hot"
+            }
+          ],
+          "response_format": "scalar",
+          "sort": {
+            "count": 100,
+            "order_by": [
+              {
+                "type": "formula",
+                "index": 0,
+                "order": "desc"
+              }
+            ]
+          },
+          "formulas": [
+            {
+              "cell_display_mode": "bar",
+              "alias": "Count",
+              "formula": "query1"
+            }
+          ]
+        }
+      ],
+      "has_search_bar": "auto"
+    },
+    "layout": {
+      "x": 0,
+      "y": 2,
+      "width": 12,
+      "height": 3
+    }
+  }
