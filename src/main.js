@@ -10,14 +10,9 @@ const args = process.argv.slice(2)
 const service = args[0]
 const routeFile = args[1]
 const description = args[2]
-console.log(service)
 
 if (service === 'ui') {
-    console.log(service)
-    console.log(description)
-    uiDashboardGenerator({ service, description})
+    uiDashboardGenerator({ service, description })
 } else if (service === 'api') {
-    console.log(service)
-    console.log(description)
-    apiDashboardGenerator({ service, description, routeFile})
+    apiDashboardGenerator({ service, description, routeFile })
 } 
