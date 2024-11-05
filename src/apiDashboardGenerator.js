@@ -55,7 +55,7 @@ export default function apiDashboardGenerator({ service, description, routeFile 
       '',
     )
 
-    const primaryWidget = buildPrimaryWidget({ urlTitle, url, statusCodes, command })
+    const primaryWidget = buildPrimaryWidget({ type: 'api', urlTitle, url, statusCodes, command })
     const responseTimeWidgets = buildResponseTimeWidgets({ timeTypes, url, command })
     const responseCountWidgets = buildResponseCountWidgets({ url, statusCodes, command })
 

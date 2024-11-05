@@ -4,9 +4,11 @@ import buildPrimaryWidget from './endpoints/buildPrimaryWidget.js'
 import dashboard from './templates/dashboard.json' assert { type: 'json' }
 import buildLoadWidgets from './replicas/buildLoadWidgets.js'
 import templateVariables from './templates/variables.json' assert { type: 'json' }
+import file from './templates/file/index.json' assert { type: 'json' }
 
 const dashboardTemplate = parse(dashboard)
 const templateVariablesTemplate = parse(templateVariables)
+const fileTemplate = parse(file)
 
 export default function uiDashboardGenerator({ service, description }) {
 
@@ -17,15 +19,19 @@ export default function uiDashboardGenerator({ service, description }) {
   const replicaWidgets = buildLoadWidgets({ titles, types })
 
   // file statistics
-  const urlTitle = 'File Statistics'
-  const statusCodes = ['2*', '3*', '4*', '5*']
-  const command = 'GET /static/js/app.js'
+  const urlTitle = ''
+  const statusCodes = ['2*', '4*', '5*']
+  const url = '/static/js/app.js'
+  const command = `GET ${url}`
 
-  // const primaryWidget = buildPrimaryWidget({ urlTitle, url, statusCodes, command })
+  const primaryWidget = buildPrimaryWidget({ type: 'ui', urlTitle, url, statusCodes, command })
 
-  // const widgets = [
-  //   primaryWidget
-  // ].flat()
+  console.log('=============')
+  console.log(primaryWidget)
+  const fileWidgets = fileTemplate({
+    widgets: [primaryWidget]
+  })
+  
 
   // render template variables
   const variables = templateVariablesTemplate({
@@ -38,7 +44,7 @@ export default function uiDashboardGenerator({ service, description }) {
     dashboardTemplate({
       title: service.toUpperCase(),
       description,
-      widgets: [replicaWidgets].flat(),
+      widgets: [replicaWidgets, fileWidgets].flat(),
       variables: variables,
     }, null, 2)
   )
