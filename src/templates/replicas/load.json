@@ -1,0 +1,62 @@
+{
+  "id": 2295241326914622,
+  "definition": {
+    "title": "{{title}}",
+    "title_size": "16",
+    "title_align": "left",
+    "show_legend": true,
+    "legend_layout": "auto",
+    "legend_columns": [
+      "avg",
+      "min",
+      "max",
+      "value",
+      "sum"
+    ],
+    "type": "timeseries",
+    "requests": [
+      {
+        "formulas": [
+          {
+            "formula": "{{formula}}"
+          }
+        ],
+        "queries": [
+          {
+            "query": "{{query1}}",
+            "data_source": "metrics",
+            "name": "query1"
+          },
+          {
+            "query": "{{query2}}",
+            "data_source": "metrics",
+            "name": "query2"
+          }
+        ],
+        "response_format": "timeseries",
+        "style": {
+          "palette": "dog_classic",
+          "line_type": "solid",
+          "line_width": "normal"
+        },
+        "display_type": "line"
+      }
+    ],
+    "yaxis": {
+      "min": "0",
+      "max": "110"
+    },
+    "markers": [
+      {
+        "value": "y = 100",
+        "display_type": "error dashed"
+      }
+    ]
+  },
+  "layout": {
+    "x": "{{x}}",
+    "y": 0,
+    "width": 3,
+    "height": 2
+  }
+}

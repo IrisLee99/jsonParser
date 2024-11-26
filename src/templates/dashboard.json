@@ -1,0 +1,10 @@
+{
+    "title": "{{title}}",
+    "description": "{{description}}",
+    "widgets": "{{widgets}}",
+    "template_variables": "{{variables}}",
+    "layout_type": "ordered",
+    "notify_list": [],
+    "reflow_type": "fixed",
+    "tags": []
+}

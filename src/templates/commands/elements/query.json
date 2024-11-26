@@ -1,0 +1,14 @@
+{
+    "data_source": "logs",
+    "name": "{{name}}",
+    "indexes": ["*"],
+    "compute": {
+      "aggregation": "count"
+    },
+    "group_by": [],
+    "search": {
+      "query": "{{query}}"
+    },
+    "storage": "hot"
+}
+

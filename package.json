@@ -1,0 +1,13 @@
+{
+    "name": "json-parser",
+    "author": "jie",
+    "type": "module",
+    "main": "src/main.js",
+    "scripts": {
+        "start": "node src/main.js"
+    },
+    "dependencies": {
+        "files": "^3.0.1",
+        "json-templates": "^5.1.0"
+    }
+}

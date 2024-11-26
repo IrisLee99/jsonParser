@@ -1,0 +1,17 @@
+{
+    "id": 3383285156872948,
+    "definition": {
+      "title": "Device Statistics (Unique by IP)",
+      "show_title": true,
+      "type": "group",
+      "layout_type": "ordered",
+      "widgets": "{{widgets}}"
+    },
+    "layout": {
+      "x": 0,
+      "y": 10,
+      "width": 12,
+      "height": 6,
+      "is_column_break": true
+    }
+  }

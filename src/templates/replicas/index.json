@@ -1,0 +1,16 @@
+{
+    "id": 2500442642205722,
+    "definition": {
+      "title": "Replica Statistics",
+      "show_title": true,
+      "type": "group",
+      "layout_type": "ordered",
+      "widgets": "{{widgets}}"
+    },
+    "layout": {
+      "x": 0,
+      "y": 0,
+      "width": 12,
+      "height": 3
+    }
+  }

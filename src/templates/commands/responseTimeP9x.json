@@ -1,0 +1,46 @@
+{
+    "id": 2277665382719944,
+    "definition": {
+      "title": "{{title}}",
+      "title_size": "16",
+      "title_align": "left",
+      "type": "query_value",
+      "requests": [
+        {
+          "formulas": [
+            {
+              "formula": "query1 / 1000000000"
+            }
+          ],
+          "response_format": "scalar",
+          "queries": [
+            {
+              "data_source": "logs",
+              "name": "query1",
+              "indexes": [
+                "*"
+              ],
+              "compute": {
+                "aggregation": "pc{{number}}",
+                "metric": "@duration"
+              },
+              "group_by": [],
+              "search": {
+                "query": "{{query}}"
+              },
+              "storage": "hot"
+            }
+          ]
+        }
+      ],
+      "autoscale": false,
+      "custom_unit": "s",
+      "precision": 2
+    },
+    "layout": {
+      "x": "{{x}}",
+      "y": 0,
+      "width": "{{width}}",
+      "height": 1
+    }
+  }
