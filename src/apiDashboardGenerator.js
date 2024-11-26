@@ -6,25 +6,34 @@ import buildPrimaryWidget from './endpoints/buildPrimaryWidget.js'
 import buildResponseTimeWidgets from './endpoints/buildResponseTimeWidgets.js'
 import buildResponseCountWidgets from './endpoints/buildResponseCountWidgets.js'
 import buildLoadWidgets from './replicas/buildLoadWidgets.js'
+import buildReplicaWidgets from './replicas/buildReplicaWidgets.js' 
 
 import templateVariables from './templates/variables.json' assert { type: 'json' }
 import dashboard from './templates/dashboard.json' assert { type: 'json' }
 import commands from './templates/commands/index.json' assert { type: 'json' }
 import queries from './templates/queries/index.json' assert { type: 'json' }
+import replica from './templates/replicas/index.json' assert { type: 'json'}
 
 const dashboardTemplate = parse(dashboard)
 const templateVariablesTemplate = parse(templateVariables)
 const commandsTemplate = parse(commands)
 const queriesTemplate = parse(queries)
+const replicaTemplate = parse(replica)
 
+export default function apiDashboardGenerator({ serviceName, description, routeFile, namespace }) {
 
-export default function apiDashboardGenerator({ service, description, routeFile }) {
+  // Replica Statistics
+  const replicaWidgets = buildReplicaWidgets({})
 
-  const titles = ['CPU Load', 'Memory Load']
-  const types = ['percentage', 'count']
   // 1. CPU Load - Current/Desired/Unavailable/Max/Requested
   // 2. Memory Load - Current/Desired/Unavailable/Max/Requested
-  const replicaWidgets = buildLoadWidgets({ titles, types })
+  const titles = ['CPU Load', 'Memory Load']
+  const types = ['percentage', 'count', 'Max', 'Requested']
+  const loadWidgets = buildLoadWidgets({ titles, types })
+
+  const replicaStatisticsWidgets = replicaTemplate({
+    widgets: [replicaWidgets, loadWidgets].flat()
+  })
 
   // Read in routes.js
   const statusCodes = ['(2* OR 3*)', '4*', '5*']
@@ -35,12 +44,10 @@ export default function apiDashboardGenerator({ service, description, routeFile 
   let httpRoutes = buffer.split('httpServer.router.')
   httpRoutes.splice(0, 1)
 
-  // total endpoints:
-  console.log(httpRoutes.length)
-
   let commandGroup = [], queryGroup = [], commandWidgets = [], queryWidgets = []
   // Check each array with command and url
   httpRoutes.forEach((route) => {
+    const width = 4
     const lines = route.split('\n')
     const command = lines[0].replaceAll('(', '').trim().toUpperCase()
     const urlTitle = lines[1].replaceAll(re, '').trim()
@@ -55,7 +62,7 @@ export default function apiDashboardGenerator({ service, description, routeFile 
       '',
     )
 
-    const primaryWidget = buildPrimaryWidget({ type: 'api', urlTitle, url, statusCodes, command })
+    const primaryWidget = buildPrimaryWidget({ type: 'api', urlTitle, url, statusCodes, command, width })
     const responseTimeWidgets = buildResponseTimeWidgets({ timeTypes, url, command })
     const responseCountWidgets = buildResponseCountWidgets({ url, statusCodes, command })
 
@@ -79,30 +86,28 @@ export default function apiDashboardGenerator({ service, description, routeFile 
     widgets: queryGroup.flat()
   })
 
-  // UI routes
-  // GET /static/js/app.js
-  // const jsonString = '{'req.url':'/static/js/app.js', 'req.method':'GET'}'
-
   // render template variables
   const variables = templateVariablesTemplate({
-    service,
-    namespace: 'dcol-sit-h',
+    serviceName,
+    namespace,
   })
 
   // render dashboard template
   const outputStream = JSON.stringify(
     dashboardTemplate({
-      title: service.toUpperCase(),
+      title: serviceName.toUpperCase(),
       description,
-      widgets: [replicaWidgets, commandWidgets, queryWidgets].flat(),
+      widgets: [replicaStatisticsWidgets, commandWidgets, queryWidgets].flat(),
       variables: variables,
     }, null, 2)
   )
   
   // file ouput
   try {
-    fs.writeFileSync('data/destination/APIoutput.json', outputStream)
+    fs.writeFileSync(`dashboard-generator/data/destination/${serviceName}-dashboard-${namespace}.json`, outputStream)
   } catch (err) {
-    console.log('Cannot generate api dashboard with error: ' + err)
+    console.error(`Cannot generate api ${serviceName} with error: ` + err)
   }
+
+  return outputStream
 }

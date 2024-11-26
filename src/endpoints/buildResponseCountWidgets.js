@@ -20,7 +20,6 @@ export default function buildResponseCountWidgets ({ url, statusCodes, command  
     const width = code.startsWith('(2') ? 2 : 1
     const x = code.startsWith('5') ? 11 : 10
     const title = code.replaceAll('*' , 'xx').replace('OR', 'and')
-    console.log(title)
 
     const template = parse(responseCount)
     const aWidget = template({

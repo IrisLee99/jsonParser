@@ -13,7 +13,7 @@
               "data_source": "logs",
               "name": "query1",
               "search": {
-                "query": "$service $kube-namespace @http.user_agent:*{{deviceType}}*"
+                "query": "$service $kube-namespace @http.user_agent:{{deviceType}}"
               },
               "indexes": [
                 "*"
@@ -31,13 +31,7 @@
               "formula": "query1"
             }
           ],
-          "conditional_formats": [
-            {
-              "comparator": ">",
-              "value": 0,
-              "palette": "{{pallette}}"
-            }
-          ]
+          "conditional_formats": "{{conditionalFormats}}"
         }
       ],
       "autoscale": true,

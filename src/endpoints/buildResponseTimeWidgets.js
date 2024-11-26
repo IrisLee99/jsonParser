@@ -8,14 +8,12 @@ import responseTimeSeconds from "../templates/commands/responseTimeSeconds.json"
 const prefix = '$ingress-url-prefix $ingress'
 export default function buildResponseTimeWidgets ({ timeTypes, url, command }) {
     const query = `${prefix} @http.method:${command} @http.url:*${url}`
-    console.log(query)
 
     let widgets = []
     let x, title
     timeTypes.forEach(type => {
         let aWidget, template
         if( type === 'seconds') {
-            console.log('response time (s)')
             template = parse(responseTimeSeconds)
             x = 4
 

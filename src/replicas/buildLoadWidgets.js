@@ -2,12 +2,14 @@ import parse from "json-templates"
 
 import load from "../templates/replicas/load.json" assert { type: "json" }
 import buildReplicaLoadCurrentWidgets from './buildLoadCurrentWidgets.js'
+import buildReplicaLoadMaxRequestedWidgets from './buildLoadMaxRequestedWidgets.js'
+
 
 const loadTemplate = parse(load)
 
 export default function buildLoadWidgets ({ titles, types }) {
 
-  let replicaLoadCurrentWidgets
+  let replicaLoadCurrentWidgets, replicaLoadMaxWidgets
   let formula, query1, query2, x
   let widgets = []
   titles.forEach( title => {
@@ -19,14 +21,17 @@ export default function buildLoadWidgets ({ titles, types }) {
       midfix = '.total'
       group = 'cpu'
       x = 2
-      replicaLoadCurrentWidgets = buildReplicaLoadCurrentWidgets({ group, types })
+      replicaLoadCurrentWidgets = buildReplicaLoadCurrentWidgets({ group, types: types.slice(0,2) })
+      replicaLoadMaxWidgets = buildReplicaLoadMaxRequestedWidgets({ group,types: types.slice(-2), query1, query2 })
 
     } else if (title.startsWith('Memory')) {
       formula = 'query1 * 100 / query2'
       prefix = 'sum'
       group = 'memory'
       x = 7
-      replicaLoadCurrentWidgets = buildReplicaLoadCurrentWidgets({ group, types })
+      replicaLoadCurrentWidgets = buildReplicaLoadCurrentWidgets({ group, types: types.slice(0,2) })
+      replicaLoadMaxWidgets = buildReplicaLoadMaxRequestedWidgets({ group,types: types.slice(-2), query1, query2 })
+
     }
 
     query1 = `${prefix}:kubernetes.${group}.usage${midfix}{$kube-service}`
@@ -40,9 +45,9 @@ export default function buildLoadWidgets ({ titles, types }) {
       x
     })
 
-    console.log(widget)
     widgets.push(widget)
     widgets.push(replicaLoadCurrentWidgets)
+    widgets.push(replicaLoadMaxWidgets)
   })
 
   return widgets.flat()

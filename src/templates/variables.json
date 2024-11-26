@@ -3,17 +3,17 @@
       "name": "kube-deployment",
       "prefix": "kube_deployment",
       "available_values": [
-        "{{service}}"
+        "{{serviceName}}"
       ],
-      "default": "{{service}}"
+      "default": "{{serviceName}}"
     },
     {
       "name": "kube-service",
       "prefix": "kube_service",
       "available_values": [
-        "{{service}}"
+        "{{serviceName}}"
       ],
-      "default": "{{service}}"
+      "default": "{{serviceName}}"
     },
     {
       "name": "kube-namespace",
@@ -27,9 +27,9 @@
       "name": "service",
       "prefix": "service",
       "available_values": [
-        "{{service}}"
+        "{{serviceName}}"
       ],
-      "default": "{{service}}"
+      "default": "{{serviceName}}"
     },
     {
       "name": "ingress",
@@ -43,8 +43,8 @@
       "name": "ingress-url-prefix",
       "prefix": "@http.url",
       "available_values": [
-        "/{{service}}*"
+        "/{{serviceName}}*"
       ],
-      "default": "/{{service}}*"
+      "default": "/{{serviceName}}*"
     }
   ]

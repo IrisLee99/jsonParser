@@ -1,7 +1,7 @@
 {
     "id": 5131280515486254,
     "definition": {
-      "title": "Replicas Available",
+      "title": "{{title}}",
       "title_size": "16",
       "title_align": "left",
       "type": "query_value",
@@ -16,13 +16,18 @@
             {
               "palette": "black_on_light_green",
               "value": 0,
-              "comparator": ">"
+              "comparator": "{{comparator1}}"
+            },
+            {
+              "palette": "black_on_light_red",
+              "value": 0,
+              "comparator": "{{comparator2}}"
             }
           ],
           "response_format": "scalar",
           "queries": [
             {
-              "query": "sum:kubernetes_state.deployment.replicas_available{$kube-deployment}",
+              "query": "sum:kubernetes_state.deployment.{{replicaType}}{$kube-deployment}",
               "data_source": "metrics",
               "name": "query1",
               "aggregator": "last"
@@ -34,9 +39,9 @@
       "precision": 2
     },
     "layout": {
-      "x": 0,
-      "y": 0,
-      "width": 2,
+      "x": "{{x}}",
+      "y": "{{y}}",
+      "width": "{{width}}",
       "height": 1
     }
   }
