@@ -1,3 +1,5 @@
+This is a testing repo, to prove the idea of auto generate Datadog dashboard config (JSON) file, by routes.js in our repos
+
 ## Generating
 
 For local dashboard generating, follow these steps:
